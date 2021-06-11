@@ -1,0 +1,29 @@
+﻿<Window x:Class="CppMate.Source.ToolWindows.CppMateInit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CppMate.Source.ToolWindows"
+             mc:Ignorable="d" 
+             ResizeMode="NoResize"
+             Height="350" Width="600">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="572" Margin="10,0,10,0" Height="172">
+                <Image Source="/CppMate;component/Resources/cppmate_logo.png" Margin="10,10,35,10" Width="256"></Image>
+                <StackPanel>
+                    <TextBlock Text="Welcome to C++ Mate!" Margin="0,25,0,0" FontFamily="Consolas" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Text="C++ Mate is a VS 2019 plugin that makes working with C++ source files an enjoyable experience." Margin="0,5,0,10" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Width="260" FontSize="14" TextAlignment="Center" Foreground="#FF363636"/>
+                    <TextBlock Text="Created by Rastko Tojagic" Margin="0,5,0,10" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" Text="Please take a moment to fill the required configuration for the current solution. You will be asked for  this only once, when running the solution for the first time or after regenerating solutions." HorizontalAlignment="Left" Margin="10,0,0,10" Width="572" Height="48"/>
+            <StackPanel Orientation="Horizontal" Height="20" HorizontalAlignment="Center" Width="600" VerticalAlignment="Center">
+                <Label Content="Source directory" HorizontalAlignment="Left" Margin="20,-5,0,-7"/>
+                <TextBox x:Name="txtSourceDir" Text="{Binding Path=SourceDirPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="400" Margin="10 0"></TextBox>
+                <Button Name="BtnBrowse" Command="{Binding CMD_BrowseSourceDir}">Browse</Button>
+            </StackPanel>
+            <Button Content="Save &amp; Run" Command="{Binding CMD_SaveAndRun}" Width="100" Height="20" Margin="0,30,0,0"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Include href="KnownImageIds.vsct" />
+
+  <Commands package="guidPackage">
+
+    <Groups>
+      <Group guid="guidCppMatePackageCmdSet" id="MyMenuGroup" priority="0x0100" />
+    </Groups>
+
+    <!--This section defines the elements the user can interact with, like a menu command or a button
+        or combo box in a toolbar. -->
+    <Buttons>
+      <Button guid="guidCppMatePackageCmdSet" id="CppMateToolWindowCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1" />
+        <Icon guid="ImageCatalogGuid" id="CPPFileNode" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>C++ Mate</ButtonText>
+        </Strings>
+      </Button>
+
+      <!--Add folder-->
+      <Button guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0100" type="Button">
+        <!--<Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />-->
+        <Icon guid="ImageCatalogGuid" id="AddFolder" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>[C++ Mate] Add Folder</ButtonText>
+        </Strings>
+      </Button>
+      <!--Create Source File-->
+      <Button guid="guidCppMatePackageCmdSet" id="cmdidAddSourceFile" priority="0x0100" type="Button">
+        <Icon guid="ImageCatalogGuid" id="CPPFileNode" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>[C++ Mate] Add Source File</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+
+    <!--Define group placements-->
+    <CommandPlacement guid="guidCppMatePackageCmdSet" id="MyMenuGroup" priority="0x0001">
+      <!--The parent of the group will be the solution context menu-->
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE" />
+    </CommandPlacement>
+
+    <!--Define command placements-->
+    <CommandPlacement guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0001">
+      <!--The parent of the group will be the solution context menu-->
+      <Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />
+    </CommandPlacement>
+
+    <!--Define command placements-->
+    <CommandPlacement guid="guidCppMatePackageCmdSet" id="cmdidAddSourceFile" priority="0x0001">
+      <!--The parent of the group will be the solution context menu-->
+      <Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />
+    </CommandPlacement>
+  </CommandPlacements>
+
+  <Symbols>
+    <GuidSymbol name="guidPackage" value="{969c8e63-189f-4be0-a8e0-e10bce3cdcef}" />
+
+    <GuidSymbol name="guidCppMatePackageCmdSet" value="{f80f8d3c-bf68-4920-aade-1773c0cc052a}">
+
+      <!--Groups-->
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+
+      <IDSymbol name="CppMateToolWindowCommandId" value="0x0100" />
+      <IDSymbol name="cmdidAddFolderCmd" value="0x1021" />
+      <IDSymbol name="cmdidAddSourceFile" value="0x1022" />
+      <IDSymbol value="4130" name="cmdidCppMateStartCommand" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{6568f315-d470-458a-9b18-cec10eaeee2f}" name="guidImages">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
