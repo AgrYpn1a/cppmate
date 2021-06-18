@@ -23,21 +23,22 @@
         </Strings>
       </Button>
 
-      <!--Add folder-->
-      <Button guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0100" type="Button">
-        <!--<Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />-->
-        <Icon guid="ImageCatalogGuid" id="AddFolder" />
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <Strings>
-          <ButtonText>[C++ Mate] Add Folder</ButtonText>
-        </Strings>
-      </Button>
       <!--Create Source File-->
       <Button guid="guidCppMatePackageCmdSet" id="cmdidAddSourceFile" priority="0x0100" type="Button">
         <Icon guid="ImageCatalogGuid" id="CPPFileNode" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
           <ButtonText>[C++ Mate] Add Source File</ButtonText>
+        </Strings>
+      </Button>
+
+      <!--Add folder-->
+      <Button guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0101" type="Button">
+        <!--<Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />-->
+        <Icon guid="ImageCatalogGuid" id="AddFolder" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>[C++ Mate] Add Folder</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -52,7 +53,7 @@
     </CommandPlacement>
 
     <!--Define command placements-->
-    <CommandPlacement guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0001">
+    <CommandPlacement guid="guidCppMatePackageCmdSet" id="cmdidAddFolderCmd" priority="0x0002">
       <!--The parent of the group will be the solution context menu-->
       <Parent guid="guidCppMatePackageCmdSet" id="MyMenuGroup" />
     </CommandPlacement>
