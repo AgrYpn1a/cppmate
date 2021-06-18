@@ -50,6 +50,7 @@
     <Compile Include="Source\Attributes\ININameAttribute.cs" />
     <Compile Include="Source\Commands\BrowseDirCmd.cs" />
     <Compile Include="Source\Commands\CancelAndCloseCmd.cs" />
+    <Compile Include="Source\Commands\CreateFileCmd.cs" />
     <Compile Include="Source\Commands\SaveAndRunCmd.cs" />
     <Compile Include="Source\Commands\Tool\AddFolderCmd.cs" />
     <Compile Include="Source\Commands\Tool\AddSourceFile.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Source\Config\INIConfig.cs" />
     <Compile Include="Source\CppMateManager.cs" />
     <Compile Include="Source\CppMatePackage.cs" />
+    <Compile Include="Source\CppMateVSHelper.cs" />
     <Compile Include="Source\ProjectTypes.cs" />
     <Compile Include="Source\ViewModel\CppMateInitVM.cs" />
     <Compile Include="Source\ViewModel\CppMateMainVM.cs" />
