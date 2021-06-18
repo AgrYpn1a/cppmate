@@ -6,6 +6,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using Task = System.Threading.Tasks.Task;
 
 namespace CppMate.Source.Commands.Tool
@@ -66,6 +67,8 @@ namespace CppMate.Source.Commands.Tool
 			}
 		}
 
+		public AsyncPackage Package => package;
+
 		/// <summary>
 		/// Initializes the singleton instance of the command.
 		/// </summary>
@@ -91,7 +94,16 @@ namespace CppMate.Source.Commands.Tool
 		{
 			ThreadHelper.ThrowIfNotOnUIThread();
 
+			string targetPath = CppMateVSHelper.GetSelectedFolderPath();
+			if (targetPath == string.Empty)
+			{
+				MessageBox.Show("Error: Invalid path.");
+				return;
+			}
+
 			CppMateMain win = new CppMateMain();
+			win.VM.CurrentSelectedFolder = targetPath;
+
 			win.ShowDialog();
 		}
 	}

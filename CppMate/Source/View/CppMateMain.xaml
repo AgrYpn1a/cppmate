@@ -6,13 +6,56 @@
              xmlns:local="clr-namespace:CppMate.Source.ToolWindows"
              mc:Ignorable="d" 
              ResizeMode="NoResize"
-             Height="Auto" Width="400">
+             Height="460" Width="400">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"  Height="80" Margin="10,20,0,20">
                 <Image Source="/CppMate;component/Resources/cppmate_logo.png" Width="374"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <DockPanel Height="25">
+                <Label DockPanel.Dock="Left" Content="New C++ Class" FontFamily="Consolas" />
+                <Separator Margin="0 0 5 0"/>
+            </DockPanel>
+
+            <StackPanel Margin="10" Width="360">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Class Name"></Label>
+                    <TextBox Width="280" Text="{Binding Path=ClassName}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <!--Source-->
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Path=CppVisible, Mode=TwoWay}" Margin="7,0,0,0">
+                    <Label Content=".cpp" Width="35"></Label>
+                    <TextBox Width="300" IsReadOnly="True" TextAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=SourceFilePath,FallbackValue=C:\\Minor\\ClassName.cpp}" Margin="0,0,5,0"></TextBox>
+                </StackPanel>
+                <!--Header-->
+                <StackPanel Orientation="Horizontal" Margin="7,0,0,0">
+                    <Label Content=".hpp" Width="35"></Label>
+                    <TextBox Width="300" IsReadOnly="True" TextAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=HeaderFilePath,FallbackValue=C:\\Minor\\ClassName.h}" Margin="0,0,5,0"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+            <DockPanel Height="25">
+                <Label DockPanel.Dock="Left" Content="Configuration" FontFamily="Consolas" />
+                <Separator Margin="0 0 5 0"/>
+            </DockPanel>
+
+            <StackPanel Margin="10 0">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Path=HeaderOnly, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                    <Label Content="Header only?"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center"></CheckBox>
+                    <Label Content="Use .hpp instead .h?"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding UseLowerCase}"></CheckBox>
+                    <Label Content="Use lowercase file names?"></Label>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="Cancel" Command="{Binding CMD_Cancel}" Width="100" Height="20" Margin="0,0,10,0"></Button>
                 <Button Content="Create" Command="{Binding CMD_Create}" Width="100" Height="20" Margin="0,0,0,0"></Button>
             </StackPanel>
